@@ -3,10 +3,10 @@
 import { useEffect, useState } from "react";
 
 export const NAV_ITEMS = [
-  { id: "skills", label: "Skills" },
-  { id: "experience", label: "Experience" },
-  { id: "projects", label: "Projects" },
-  { id: "blog", label: "Blog" },
+  { id: "skills", label: "기술" },
+  { id: "experience", label: "경험" },
+  { id: "projects", label: "프로젝트" },
+  { id: "blog", label: "블로그" },
 ] as const;
 
 export type SectionId = (typeof NAV_ITEMS)[number]["id"];
