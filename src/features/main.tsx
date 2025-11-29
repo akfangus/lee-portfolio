@@ -1,17 +1,23 @@
-import { HieutIcon, IeungIcon, SiotIcon } from "@/components/ui/svg";
+import { GNB, Intro } from "./components";
 
 export default function Main() {
   return (
     <div className="flex flex-col items-center justify-center">
-      <div className="flex items-center justify-center">
-        <IeungIcon className="w-10 h-10" />
-        <SiotIcon className="w-10 h-10" />
-        <HieutIcon className="w-10 h-10" />
-      </div>
-      <div>
-        <p>안녕하세요 프론트엔드 개발자 </p>
-        <p>이신행입니다</p>
-      </div>
+      <Intro />
+      <GNB />
+
+      <section id="skills" className="w-full h-[1000px] bg-amber-300">
+        test
+      </section>
+      <section id="experience" className="w-full h-[1000px] bg-emerald-400">
+        test
+      </section>
+      <section id="projects" className="w-full h-[1000px] bg-blue-500">
+        test
+      </section>
+      <section id="blog" className="w-full h-[1000px] bg-purple-500">
+        test
+      </section>
     </div>
   );
 }

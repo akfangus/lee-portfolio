@@ -3,6 +3,7 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --header-height: 64px; /* GNB Height */
 }
 
 @theme inline {
@@ -16,6 +17,11 @@
     --background: #0a0a0a;
     --foreground: #ededed;
   }
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-height);
 }
 
 body {
