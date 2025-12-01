@@ -32,6 +32,13 @@ body {
 
 @layer components {
   .intro-icon {
-    @apply transition-transform duration-300 hover:-translate-y-2;
+    @apply transition-transform duration-500;
+    /* 표준 CSS로 명시하여 확실한 탄성 효과 적용 */
+    transition-timing-function: cubic-bezier(0.18, 0.89, 0.32, 1.4);
+    will-change: transform;
+  }
+
+  .intro-icon:hover {
+    @apply -translate-y-6;
   }
 }

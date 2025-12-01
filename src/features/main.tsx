@@ -1,4 +1,4 @@
-import { GNB, Intro } from "./components";
+import { GNB, Intro, Skills } from "./components";
 
 export default function Main() {
   return (
@@ -6,9 +6,10 @@ export default function Main() {
       <Intro />
       <GNB />
 
-      <section id="skills" className="w-full h-[1000px] bg-amber-300">
+      {/* <section id="skills" className="w-full h-[1000px] bg-amber-300">
         test
-      </section>
+      </section> */}
+      <Skills />
       <section id="experience" className="w-full h-[1000px] bg-emerald-400">
         test
       </section>

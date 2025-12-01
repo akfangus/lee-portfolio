@@ -10,8 +10,8 @@ export function GNB() {
       <nav
         className={`pointer-events-auto flex items-center justify-center transition-all duration-300 ease-in-out backdrop-blur-md ${
           isSticky
-            ? "mt-4 w-fit rounded-full border border-gray-200 bg-white/80 px-8 py-2 shadow-lg dark:border-gray-800 dark:bg-black/80"
-            : "w-full border-b border-gray-200 bg-white/80 px-4 py-4 dark:border-gray-800 dark:bg-black/80"
+            ? "mt-4 w-fit rounded-full  bg-white/80 px-8 py-2 shadow-lg dark:border-gray-800 dark:bg-black/80"
+            : "w-full  bg-white/80 px-4 py-4 dark:border-gray-800 dark:bg-black/80"
         }`}
       >
         <ul className="flex gap-8">
