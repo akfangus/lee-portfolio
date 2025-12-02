@@ -2,8 +2,9 @@
 
 import { useState } from "react";
 import { ExperienceItem as IExperienceItem } from "@/features/consts";
-import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Badge } from "@/components/ui/badge";
+import { ToggleButton } from "@/features/components/experience/toggle-button";
 
 interface ExperienceItemProps {
   data: IExperienceItem;
@@ -34,22 +35,12 @@ export function ExperienceItem({ data }: ExperienceItemProps) {
           </div>
         </div>
 
-        {/* Toggle Button */}
-        <button
+        <ToggleButton
+          isOpen={isOpen}
           onClick={toggleOpen}
-          className="flex items-center gap-2 text-sm font-medium text-blue-400  dark:text-blue-400  transition-colors mt-2 w-fit group cursor-pointer"
-        >
-          <span>{isOpen ? "업무 내용 접기" : "업무 내용 자세히보기"}</span>
-          <ChevronDown
-            className={cn(
-              "w-4 h-4 transition-transform duration-300",
-              isOpen ? "-rotate-180" : "rotate-0",
-              isOpen
-                ? "group-hover:-translate-y-0.5"
-                : "group-hover:translate-y-0.5"
-            )}
-          />
-        </button>
+          labelOpen="업무 내용 접기"
+          labelClose="업무 내용 자세히보기"
+        />
       </div>
 
       {/* Detail Section (Collapsible with CSS Grid) */}
@@ -86,12 +77,9 @@ export function ExperienceItem({ data }: ExperienceItemProps) {
 
                   <div className="flex flex-wrap gap-2 my-1">
                     {project.techStack.map((tech, tIdx) => (
-                      <span
-                        key={tIdx}
-                        className="text-xs px-2.5 py-1 rounded-md bg-stone-200/60 dark:bg-stone-700/60 text-stone-700 dark:text-stone-300 font-medium"
-                      >
+                      <Badge key={tIdx} variant="destructive">
                         {tech}
-                      </span>
+                      </Badge>
                     ))}
                   </div>
 
