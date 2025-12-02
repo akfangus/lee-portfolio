@@ -21,6 +21,9 @@ const CATEGORY_MAP: Record<string, SkillItem["category"]> = {
   storybook: "library",
   vercel: "environment",
   zustand: "library",
+  vitest: "library",
+  axios: "library",
+  reactquery: "library",
 };
 
 // 화면에 표시될 이름 매핑 (파일명 -> 표시 이름)
