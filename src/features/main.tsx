@@ -1,18 +1,13 @@
 import { GNB, Intro, Skills } from "./components";
+import { Experience } from "./components/experience";
 
 export default function Main() {
   return (
     <div className="flex flex-col items-center justify-center">
       <Intro />
       <GNB />
-
-      {/* <section id="skills" className="w-full h-[1000px] bg-amber-300">
-        test
-      </section> */}
       <Skills />
-      <section id="experience" className="w-full h-[1000px] bg-emerald-400">
-        test
-      </section>
+      <Experience />
       <section id="projects" className="w-full h-[1000px] bg-blue-500">
         test
       </section>

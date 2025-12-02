@@ -14,7 +14,6 @@ export function Skills() {
         아래 기술들을 사용할 수 있습니다.
       </h2>
 
-      {/* Suspense boundary for nuqs (useSearchParams) */}
       <Suspense
         fallback={
           <div className="w-full h-96 flex items-center justify-center">
