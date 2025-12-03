@@ -7,9 +7,9 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import dayjs from "dayjs";
 import { BlogPost } from "@/features/blog/types";
-import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { memo, type ComponentProps } from "react";
+import { useRouter } from "next/navigation";
 
 interface PostDetailProps {
   post: BlogPost;
@@ -74,14 +74,16 @@ const MarkdownContent = memo(function MarkdownContent({
 });
 
 export function PostDetail({ post, content }: PostDetailProps) {
+  const router = useRouter();
+
   return (
     <article className="mx-auto max-w-3xl">
-      <Link
-        href="/blog"
+      <button
+        onClick={() => router.back()}
         className="mb-8 inline-flex items-center text-sm font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100"
       >
         ← Back to Blog
-      </Link>
+      </button>
 
       <header className="mb-10 text-center">
         <div className="mb-4 flex items-center justify-center gap-2">

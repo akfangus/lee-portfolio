@@ -383,7 +383,40 @@ export async function getBlogPostContent(
   }
 }
 
+/**
+ * 블로그 포스트 미리보기 (최신 N개만 가져오기)
+ * - 메인 페이지의 Blog 섹션에서 사용
+ */
+export async function getBlogPostsPreview(
+  limit: number = 4
+): Promise<BlogPost[]> {
+  try {
+    const dataSourceId = await getDataSourceId();
+
+    const response = await notion.dataSources.query({
+      data_source_id: dataSourceId,
+      filter: {
+        property: "상태",
+        status: { equals: "완료" },
+      },
+      sorts: [{ property: "최종 편집 일시", direction: "descending" }],
+      page_size: limit,
+    });
+
+    return response.results
+      .filter(
+        (page): page is typeof page & { properties: NotionPageProperties } =>
+          "properties" in page
+      )
+      .map((page) => transformPageToPost(page as unknown as NotionPageResult));
+  } catch (error) {
+    console.error("Failed to fetch blog posts preview:", error);
+    return [];
+  }
+}
+
 // Alias exports
 export const getPosts = getBlogPosts;
 export const getPost = getBlogPostById;
 export const getPostContent = getBlogPostContent;
+export const getPostsPreview = getBlogPostsPreview;

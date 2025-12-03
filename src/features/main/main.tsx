@@ -1,17 +1,14 @@
-import { GNB, Intro, Skills } from "./components";
+import { GNB, Intro, Skills, Blog } from "./components";
 import { Experience } from "./components/experience";
 
-export default function Main() {
+export default function Main(): React.ReactElement {
   return (
     <div className="flex flex-col items-center justify-center">
       <Intro />
       <GNB />
       <Skills />
       <Experience />
-
-      <section id="blog" className="w-full h-[1000px] bg-purple-500">
-        test
-      </section>
+      <Blog />
     </div>
   );
 }
