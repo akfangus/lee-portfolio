@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Jua } from "next/font/google";
 import "./globals.css";
 import Providers from "./providers";
+import { MainHeader } from "@/components/header";
 
 const jua = Jua({
   variable: "--font-jua",
@@ -24,6 +25,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${jua.variable} antialiased `}>
         <Providers>
+          <MainHeader />
           <div className="mx-auto max-w-[1080px] w-full min-h-screen relative">
             {children}
           </div>

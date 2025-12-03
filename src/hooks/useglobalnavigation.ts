@@ -5,7 +5,6 @@ import { useEffect, useState } from "react";
 export const NAV_ITEMS = [
   { id: "skills", label: "기술" },
   { id: "experience", label: "경험" },
-  { id: "projects", label: "프로젝트" },
   { id: "blog", label: "블로그" },
 ] as const;
 

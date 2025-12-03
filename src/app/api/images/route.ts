@@ -1,6 +1,6 @@
 import { list } from "@vercel/blob";
 import { NextResponse } from "next/server";
-import { SkillItem } from "@/features/consts";
+import { SkillItem } from "@/features/main/consts";
 
 export const runtime = "edge";
 

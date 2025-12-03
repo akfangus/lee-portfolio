@@ -1,0 +1,1 @@
+export { BlogMain } from "./main";

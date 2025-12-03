@@ -1,10 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { ExperienceItem as IExperienceItem } from "@/features/consts";
+import { ExperienceItem as IExperienceItem } from "@/features/main/consts";
 import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
-import { ToggleButton } from "@/features/components/experience/toggle-button";
+import { ToggleButton } from "@/features/main/components/experience/toggle-button";
 
 interface ExperienceItemProps {
   data: IExperienceItem;

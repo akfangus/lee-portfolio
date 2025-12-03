@@ -8,9 +8,7 @@ export default function Main() {
       <GNB />
       <Skills />
       <Experience />
-      <section id="projects" className="w-full h-[1000px] bg-blue-500">
-        test
-      </section>
+
       <section id="blog" className="w-full h-[1000px] bg-purple-500">
         test
       </section>

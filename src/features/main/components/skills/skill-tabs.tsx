@@ -1,6 +1,6 @@
 "use client";
 
-import { CATEGORIES } from "@/features/consts";
+import { CATEGORIES } from "@/features/main/consts";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tab/tab";
 import { useQueryState } from "nuqs";
 

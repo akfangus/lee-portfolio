@@ -1,5 +1,5 @@
-import { EXPERIENCE_DATA } from "@/features/consts";
-import { ExperienceItem } from "@/features/components/experience/experience-item";
+import { EXPERIENCE_DATA } from "@/features/main/consts";
+import { ExperienceItem } from "@/features/main/components/experience/experience-item";
 
 export function Experience() {
   return (

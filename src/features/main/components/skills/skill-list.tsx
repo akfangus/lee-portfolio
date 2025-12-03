@@ -3,7 +3,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
-import { SkillItem, CATEGORIES } from "@/features/consts";
+import { SkillItem, CATEGORIES } from "@/features/main/consts";
 import { useQueryState } from "nuqs";
 import {
   Tooltip,
