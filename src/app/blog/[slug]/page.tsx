@@ -47,9 +47,6 @@ export default async function BlogPostPage({
     notFound();
   }
 
-  console.log("post", post);
-  console.log("content", content);
-
   return (
     <div className="container mx-auto max-w-5xl px-4 py-12">
       <PostDetail post={post} content={content ?? ""} />

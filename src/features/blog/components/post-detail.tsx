@@ -82,7 +82,7 @@ export function PostDetail({ post, content }: PostDetailProps) {
         onClick={() => router.back()}
         className="mb-8 inline-flex items-center text-sm font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100"
       >
-        ← Back to Blog
+        ← Back
       </button>
 
       <header className="mb-10 text-center">
