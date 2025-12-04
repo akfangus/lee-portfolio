@@ -48,7 +48,7 @@ export default async function BlogPostPage({
   }
 
   return (
-    <div className="container mx-auto max-w-5xl px-4 py-12">
+    <div className="container mx-auto max-w-5xl px-4 py-12 font-noto-sans-kr">
       <PostDetail post={post} content={content ?? ""} />
     </div>
   );

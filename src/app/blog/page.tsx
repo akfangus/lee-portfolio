@@ -14,5 +14,9 @@ export default async function BlogPage(): Promise<React.ReactElement> {
   // Server Component에서 직접 노션 API 호출
   const posts = await getBlogPosts();
 
-  return <BlogMain posts={posts} />;
+  return (
+    <div className="font-noto-sans-kr">
+      <BlogMain posts={posts} />
+    </div>
+  );
 }
