@@ -1,11 +1,22 @@
+"use client";
+
+import { useInView } from "react-intersection-observer";
 import { EXPERIENCE_DATA } from "@/features/main/consts";
 import { ExperienceItem } from "@/features/main/components/experience/experience-item";
 
 export function Experience() {
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
   return (
     <section
+      ref={ref}
       id="experience"
-      className="w-full py-20 flex flex-col items-center gap-12"
+      className={`w-full py-20 flex flex-col items-center gap-12 ${
+        inView ? "animate-fade-in-up" : "opacity-0"
+      }`}
     >
       <h2 className="text-4xl font-bold text-stone-900 dark:text-white">
         경력사항

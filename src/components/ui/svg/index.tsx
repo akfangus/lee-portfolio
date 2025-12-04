@@ -1,3 +1,5 @@
 export { IeungIcon } from "./ieung";
 export { SiotIcon } from "./siot";
 export { HieutIcon } from "./hieut";
+export { GithubIcon } from "./github";
+export { NotionIcon } from "./notion";

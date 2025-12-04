@@ -4,6 +4,7 @@ import { getPostsPreview } from "@/lib/notion";
 import { BlogHeader } from "./blog/blog-header";
 import { BlogGrid } from "./blog/blog-grid";
 import { BlogViewAllButton } from "./blog/blog-view-all-button";
+import { BlogSection } from "./blog/blog-section";
 
 /**
  * 블로그 컴포넌트 (Suspense 포함)
@@ -13,13 +14,13 @@ export async function Blog() {
   const posts = await getPostsPreview(4);
   return (
     <Suspense fallback={<BlogSkeleton />}>
-      <section id="blog" className="w-full py-24">
+      <BlogSection>
         <div className="mx-auto max-w-6xl px-6">
           <BlogHeader />
           <BlogGrid posts={posts} />
           <BlogViewAllButton />
         </div>
-      </section>
+      </BlogSection>
     </Suspense>
   );
 }

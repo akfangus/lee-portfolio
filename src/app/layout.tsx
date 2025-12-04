@@ -12,8 +12,12 @@ const jua = Jua({
 });
 
 export const metadata: Metadata = {
-  title: "Portfolio",
-  description: "Portfolio of my own projects",
+  title: "Goddddd's Portfolio",
+  description:
+    "프론트엔드 개발자 이신행의 포트폴리오입니다. 많은 관심 부탁드립니다.",
+  icons: {
+    icon: "/portfolio.svg",
+  },
 };
 
 export default function RootLayout({
