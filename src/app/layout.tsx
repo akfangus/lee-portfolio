@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Jua } from "next/font/google";
+import { Jua, Noto_Sans_KR } from "next/font/google";
 import "./globals.css";
 import Providers from "./providers";
 import { MainHeader } from "@/components/header";
@@ -8,6 +8,12 @@ const jua = Jua({
   variable: "--font-jua",
   subsets: ["latin"],
   weight: ["400"],
+  display: "swap",
+});
+const notoSansKR = Noto_Sans_KR({
+  variable: "--font-noto-sans-kr",
+  subsets: ["latin"],
+  weight: ["100", "300", "400", "500", "700", "900"],
   display: "swap",
 });
 
@@ -27,7 +33,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${jua.variable} antialiased `}>
+      <body className={`${jua.variable} ${notoSansKR.variable} antialiased `}>
         <Providers>
           <MainHeader />
           <div className="mx-auto max-w-[1080px] w-full min-h-screen relative">
