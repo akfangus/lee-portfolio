@@ -9,6 +9,11 @@ export default function Main(): React.ReactElement {
       <Skills />
       <Experience />
       <Blog />
+      <div>temp</div>
+      <div>temp</div>
+      <div>temp</div>
+      <div>temp</div>
+      <div>temp</div>
     </div>
   );
 }
