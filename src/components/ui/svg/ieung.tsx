@@ -1,4 +1,4 @@
-import React, { memo, type SVGProps } from "react";
+import React, { memo, type SVGProps } from "react"
 
 export const IeungIcon = memo(function IeungIcon({
   className,
@@ -16,5 +16,5 @@ export const IeungIcon = memo(function IeungIcon({
     >
       <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="3" />
     </svg>
-  );
-});
+  )
+})

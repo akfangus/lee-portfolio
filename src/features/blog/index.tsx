@@ -1,1 +1,1 @@
-export { BlogMain } from "./main";
+export { BlogMain } from "./main"

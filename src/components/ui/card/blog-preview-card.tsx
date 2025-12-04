@@ -1,10 +1,11 @@
-import Link from "next/link";
-import dayjs from "dayjs";
-import { Badge } from "@/components/ui/badge";
-import type { BlogPost } from "@/features/blog/types";
+import Link from "next/link"
+import Image from "next/image"
+import dayjs from "dayjs"
+import { Badge } from "@/components/ui/badge"
+import type { BlogPost } from "@/features/blog/types"
 
 interface BlogPreviewCardProps {
-  post: BlogPost;
+  post: BlogPost
 }
 
 /**
@@ -13,7 +14,7 @@ interface BlogPreviewCardProps {
 function CategoryIllustration({
   category,
 }: {
-  category: "Skill" | "Trouble Shooting";
+  category: "Skill" | "Trouble Shooting"
 }): React.ReactElement {
   if (category === "Skill") {
     return (
@@ -36,7 +37,7 @@ function CategoryIllustration({
         <div className="absolute -right-4 -top-4 h-24 w-24 rounded-full bg-white/10" />
         <div className="absolute -bottom-6 -left-6 h-32 w-32 rounded-full bg-white/5" />
       </div>
-    );
+    )
   }
 
   return (
@@ -59,7 +60,7 @@ function CategoryIllustration({
       <div className="absolute -left-4 -top-4 h-20 w-20 rounded-full bg-white/10" />
       <div className="absolute -bottom-8 -right-4 h-28 w-28 rounded-full bg-white/5" />
     </div>
-  );
+  )
 }
 
 export function BlogPreviewCard({
@@ -73,10 +74,12 @@ export function BlogPreviewCard({
       {/* 일러스트 영역 */}
       <div className="relative aspect-[16/10] w-full overflow-hidden">
         {post.cover ? (
-          <img
+          <Image
             src={post.cover}
             alt={post.title}
-            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+            fill
+            className="object-cover transition-transform duration-500 group-hover:scale-110"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         ) : (
           <CategoryIllustration category={post.category} />
@@ -106,5 +109,5 @@ export function BlogPreviewCard({
         </p>
       </div>
     </Link>
-  );
+  )
 }

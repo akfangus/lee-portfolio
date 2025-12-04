@@ -9,6 +9,5 @@ export function BlogSkeleton(): React.ReactElement {
     >
       <div className="animate-pulse text-stone-400">Loading blog...</div>
     </section>
-  );
+  )
 }
-

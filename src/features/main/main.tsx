@@ -1,5 +1,5 @@
-import { GNB, Intro, Skills, Blog } from "./components";
-import { Experience } from "./components/experience";
+import { GNB, Intro, Skills, Blog } from "./components"
+import { Experience } from "./components/experience"
 
 export default function Main(): React.ReactElement {
   return (
@@ -10,5 +10,5 @@ export default function Main(): React.ReactElement {
       <Experience />
       <Blog />
     </div>
-  );
+  )
 }

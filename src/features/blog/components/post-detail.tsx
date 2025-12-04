@@ -1,30 +1,31 @@
-"use client";
+"use client"
 
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
-import rehypeRaw from "rehype-raw";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { oneDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
-import dayjs from "dayjs";
-import { BlogPost } from "@/features/blog/types";
-import { Badge } from "@/components/ui/badge";
-import { memo, type ComponentProps } from "react";
-import { useRouter } from "next/navigation";
+import ReactMarkdown from "react-markdown"
+import remarkGfm from "remark-gfm"
+import rehypeRaw from "rehype-raw"
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
+import { oneDark } from "react-syntax-highlighter/dist/cjs/styles/prism"
+import Image from "next/image"
+import dayjs from "dayjs"
+import { BlogPost } from "@/features/blog/types"
+import { Badge } from "@/components/ui/badge"
+import { memo, type ComponentProps } from "react"
+import { useRouter } from "next/navigation"
 
 interface PostDetailProps {
-  post: BlogPost;
-  content: string;
+  post: BlogPost
+  content: string
 }
 
 // 코드 블록 컴포넌트
 type CodeProps = ComponentProps<"code"> & {
-  inline?: boolean;
-};
+  inline?: boolean
+}
 
 function CodeBlock({ inline, className, children, ...props }: CodeProps) {
-  const match = /language-(\w+)/.exec(className || "");
-  const language = match ? match[1] : "";
-  const codeString = String(children).replace(/\n$/, "");
+  const match = /language-(\w+)/.exec(className || "")
+  const language = match ? match[1] : ""
+  const codeString = String(children).replace(/\n$/, "")
 
   if (!inline && language) {
     return (
@@ -40,7 +41,7 @@ function CodeBlock({ inline, className, children, ...props }: CodeProps) {
       >
         {codeString}
       </SyntaxHighlighter>
-    );
+    )
   }
 
   // 인라인 코드
@@ -51,14 +52,14 @@ function CodeBlock({ inline, className, children, ...props }: CodeProps) {
     >
       {children}
     </code>
-  );
+  )
 }
 
 // 마크다운 렌더러 메모이제이션
 const MarkdownContent = memo(function MarkdownContent({
   content,
 }: {
-  content: string;
+  content: string
 }) {
   return (
     <ReactMarkdown
@@ -70,11 +71,11 @@ const MarkdownContent = memo(function MarkdownContent({
     >
       {content}
     </ReactMarkdown>
-  );
-});
+  )
+})
 
 export function PostDetail({ post, content }: PostDetailProps) {
-  const router = useRouter();
+  const router = useRouter()
 
   return (
     <article className="mx-auto max-w-3xl">
@@ -97,10 +98,12 @@ export function PostDetail({ post, content }: PostDetailProps) {
         </h1>
         {post.cover && (
           <div className="relative mt-8 aspect-video w-full overflow-hidden rounded-xl bg-gray-100 shadow-lg">
-            <img
+            <Image
               src={post.cover}
               alt={post.title}
-              className="h-full w-full object-cover"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 896px"
             />
           </div>
         )}
@@ -110,5 +113,5 @@ export function PostDetail({ post, content }: PostDetailProps) {
         <MarkdownContent content={content} />
       </div>
     </article>
-  );
+  )
 }

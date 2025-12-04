@@ -1,10 +1,10 @@
-"use client";
+"use client"
 
-import { PostCard } from "@/components/ui/card";
-import type { BlogPost } from "@/features/blog/types";
+import { PostCard } from "@/components/ui/card"
+import type { BlogPost } from "@/features/blog/types"
 
 interface PostListProps {
-  posts: BlogPost[];
+  posts: BlogPost[]
 }
 
 export function PostList({ posts }: PostListProps): React.ReactElement {
@@ -13,7 +13,7 @@ export function PostList({ posts }: PostListProps): React.ReactElement {
       <div className="flex flex-col items-center justify-center py-20 text-gray-500">
         <p>아직 작성된 글이 없습니다.</p>
       </div>
-    );
+    )
   }
 
   return (
@@ -22,5 +22,5 @@ export function PostList({ posts }: PostListProps): React.ReactElement {
         <PostCard key={post.id} post={post} />
       ))}
     </div>
-  );
+  )
 }

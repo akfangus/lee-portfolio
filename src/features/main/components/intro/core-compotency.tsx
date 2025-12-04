@@ -1,5 +1,5 @@
-import { IntroCard } from "@/components/ui/card/intro-card";
-import { COMPETENCY_DATA } from "@/features/main/consts";
+import { IntroCard } from "@/components/ui/card/intro-card"
+import { COMPETENCY_DATA } from "@/features/main/consts"
 
 export function CoreCompotency() {
   return (
@@ -15,5 +15,5 @@ export function CoreCompotency() {
         ))}
       </div>
     </div>
-  );
+  )
 }

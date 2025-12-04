@@ -1,8 +1,8 @@
-import { HieutIcon, IeungIcon, SiotIcon } from "@/components/ui/svg";
-import { Resume } from "./intro/resume";
-import { CoreCompotency } from "./intro/core-compotency";
-import { Profile } from "./intro/profile";
-import { Greet } from "./intro/greet";
+import { HieutIcon, IeungIcon, SiotIcon } from "@/components/ui/svg"
+import { Resume } from "./intro/resume"
+import { CoreCompotency } from "./intro/core-compotency"
+import { Profile } from "./intro/profile"
+import { Greet } from "./intro/greet"
 
 export function Intro() {
   return (
@@ -20,5 +20,5 @@ export function Intro() {
       <Resume />
       <CoreCompotency />
     </section>
-  );
+  )
 }

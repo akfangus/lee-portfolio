@@ -1,14 +1,14 @@
-"use client";
+"use client"
 
-import { ChevronDown } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { ChevronDown } from "lucide-react"
+import { cn } from "@/lib/utils"
 
 interface ToggleButtonProps {
-  isOpen: boolean;
-  onClick: () => void;
-  labelOpen?: string;
-  labelClose?: string;
-  className?: string;
+  isOpen: boolean
+  onClick: () => void
+  labelOpen?: string
+  labelClose?: string
+  className?: string
 }
 
 export function ToggleButton({
@@ -37,5 +37,5 @@ export function ToggleButton({
         )}
       />
     </button>
-  );
+  )
 }

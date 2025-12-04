@@ -1,15 +1,15 @@
-"use client";
+"use client"
 
-import { Suspense } from "react";
-import { useInView } from "react-intersection-observer";
-import { SkillTabs } from "./skills/skill-tabs";
-import { SkillList } from "./skills/skill-list";
+import { Suspense } from "react"
+import { useInView } from "react-intersection-observer"
+import { SkillTabs } from "./skills/skill-tabs"
+import { SkillList } from "./skills/skill-list"
 
 export function Skills() {
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.1,
-  });
+  })
 
   return (
     <section
@@ -34,5 +34,5 @@ export function Skills() {
         <SkillList />
       </Suspense>
     </section>
-  );
+  )
 }

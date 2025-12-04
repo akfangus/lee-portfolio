@@ -1,14 +1,14 @@
-"use client";
+"use client"
 
-import { useInView } from "react-intersection-observer";
-import { EXPERIENCE_DATA } from "@/features/main/consts";
-import { ExperienceItem } from "@/features/main/components/experience/experience-item";
+import { useInView } from "react-intersection-observer"
+import { EXPERIENCE_DATA } from "@/features/main/consts"
+import { ExperienceItem } from "@/features/main/components/experience/experience-item"
 
 export function Experience() {
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.1,
-  });
+  })
 
   return (
     <section
@@ -36,5 +36,5 @@ export function Experience() {
         ))}
       </div>
     </section>
-  );
+  )
 }
