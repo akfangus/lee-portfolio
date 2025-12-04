@@ -1,0 +1,9 @@
+# lefthook 설정 파일
+# Git hooks를 관리하는 설정입니다.
+
+pre-commit:
+  parallel: true
+  commands:
+    lint-staged:
+      run: npx lint-staged
+      stage_fixed: true
