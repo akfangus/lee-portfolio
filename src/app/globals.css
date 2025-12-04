@@ -63,6 +63,22 @@ body {
     transform-origin: center;
   }
 
+  /* fadeInUp 애니메이션 - 아래에서 위로 올라오며 나타남 */
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 3s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
   /* 인라인 코드 스타일 */
   .prose code.inline-code,
   .prose :not(pre) > code {
