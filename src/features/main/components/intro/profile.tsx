@@ -34,7 +34,7 @@ export function Profile(): React.ReactElement {
           </div>
 
           {/* 소셜 링크 - 데스크톱에서만 표시 */}
-          <div className="hidden sm:flex w-full items-center justify-end gap-3">
+          <div className="flex w-full items-center justify-end gap-3 pt-6 sm:pt-0">
             <a
               href={CONTACT_INFO.github}
               target="_blank"
@@ -110,7 +110,7 @@ export function Profile(): React.ReactElement {
         </div>
 
         {/* 하단: 소셜 링크 - 모바일에서만 표시 */}
-        <div className="px-8 py-6 sm:hidden flex items-center justify-center gap-4 bg-linear-to-r from-blue-50 to-indigo-50">
+        {/* <div className="px-8 py-6 sm:hidden flex items-center justify-center gap-4 bg-linear-to-r from-blue-50 to-indigo-50">
           <a
             href={CONTACT_INFO.github}
             target="_blank"
@@ -129,7 +129,7 @@ export function Profile(): React.ReactElement {
           >
             <NotionIcon className="w-4 h-4 text-gray-600 group-hover:text-blue-600 transition-colors" />
           </a>
-        </div>
+        </div> */}
       </div>
     </div>
   );
