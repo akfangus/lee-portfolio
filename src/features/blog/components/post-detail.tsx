@@ -5,6 +5,7 @@ import remarkGfm from "remark-gfm"
 import rehypeRaw from "rehype-raw"
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
 import { oneDark } from "react-syntax-highlighter/dist/cjs/styles/prism"
+import Image from "next/image"
 import dayjs from "dayjs"
 import { BlogPost } from "@/features/blog/types"
 import { Badge } from "@/components/ui/badge"
@@ -97,10 +98,12 @@ export function PostDetail({ post, content }: PostDetailProps) {
         </h1>
         {post.cover && (
           <div className="relative mt-8 aspect-video w-full overflow-hidden rounded-xl bg-gray-100 shadow-lg">
-            <img
+            <Image
               src={post.cover}
               alt={post.title}
-              className="h-full w-full object-cover"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 896px"
             />
           </div>
         )}

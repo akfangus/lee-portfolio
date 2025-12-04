@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 import dayjs from "dayjs"
 import { Badge } from "@/components/ui/badge"
 import type { BlogPost } from "@/features/blog/types"
@@ -73,10 +74,12 @@ export function BlogPreviewCard({
       {/* 일러스트 영역 */}
       <div className="relative aspect-[16/10] w-full overflow-hidden">
         {post.cover ? (
-          <img
+          <Image
             src={post.cover}
             alt={post.title}
-            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+            fill
+            className="object-cover transition-transform duration-500 group-hover:scale-110"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         ) : (
           <CategoryIllustration category={post.category} />
