@@ -14,7 +14,7 @@ const CONTACT_INFO = {
 
 export function Profile(): React.ReactElement {
   return (
-    <div className="w-full max-w-2xs sm:max-w-xl bg-white shadow-sm border border-gray-200 overflow-hidden transition-all duration-300 hover:shadow-md my-10">
+    <div className="w-full max-w-2xs sm:max-w-xl bg-white shadow-sm border border-gray-200 overflow-hidden transition-all duration-300 hover:shadow-md my-10 animate-zoom-in">
       <div className="flex flex-col sm:flex-row sm:min-h-[280px]">
         {/* 상단/왼쪽: 이름과 직책 */}
         <div className="px-8 py-6 sm:py-6 sm:w-2/5 flex flex-col justify-between items-center sm:items-start text-center sm:text-left border-b sm:border-b-0 sm:border-r border-gray-200 relative">
