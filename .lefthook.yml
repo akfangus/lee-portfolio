@@ -7,3 +7,4 @@ pre-commit:
     lint-staged:
       run: npx lint-staged
       stage_fixed: true
+

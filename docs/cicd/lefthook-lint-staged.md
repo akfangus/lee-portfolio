@@ -331,3 +331,4 @@ npm run prepare
 이제 커밋할 때마다 자동으로 코드 품질이 검사됩니다!  
 다음으로는 [GitHub Actions CI 파이프라인](./github-actions.md)을 설정해보세요.
 
+
