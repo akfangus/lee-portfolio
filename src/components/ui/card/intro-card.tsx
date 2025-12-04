@@ -20,7 +20,7 @@ function IntroCardBase({ title, description, imageSrc }: IntroCardProps) {
         />
       </div>
       <div className="p-4">
-        <h3 className="text-xl font-bold mb-3 text-stone-900 dark:text-stone-100 text-center">
+        <h3 className="text-xl h-[56px] font-bold mb-3 text-stone-900 dark:text-stone-100 text-center line-clamp-2">
           {title}
         </h3>
         <p className="text-sm text-stone-600 dark:text-stone-400 text-center leading-relaxed word-keep-all line-clamp-8">
