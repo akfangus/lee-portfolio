@@ -1,10 +1,10 @@
-import Link from "next/link";
-import dayjs from "dayjs";
-import { Badge } from "@/components/ui/badge";
-import type { BlogPost } from "@/features/blog/types";
+import Link from "next/link"
+import dayjs from "dayjs"
+import { Badge } from "@/components/ui/badge"
+import type { BlogPost } from "@/features/blog/types"
 
 interface BlogPreviewCardProps {
-  post: BlogPost;
+  post: BlogPost
 }
 
 /**
@@ -13,7 +13,7 @@ interface BlogPreviewCardProps {
 function CategoryIllustration({
   category,
 }: {
-  category: "Skill" | "Trouble Shooting";
+  category: "Skill" | "Trouble Shooting"
 }): React.ReactElement {
   if (category === "Skill") {
     return (
@@ -36,7 +36,7 @@ function CategoryIllustration({
         <div className="absolute -right-4 -top-4 h-24 w-24 rounded-full bg-white/10" />
         <div className="absolute -bottom-6 -left-6 h-32 w-32 rounded-full bg-white/5" />
       </div>
-    );
+    )
   }
 
   return (
@@ -59,7 +59,7 @@ function CategoryIllustration({
       <div className="absolute -left-4 -top-4 h-20 w-20 rounded-full bg-white/10" />
       <div className="absolute -bottom-8 -right-4 h-28 w-28 rounded-full bg-white/5" />
     </div>
-  );
+  )
 }
 
 export function BlogPreviewCard({
@@ -106,5 +106,5 @@ export function BlogPreviewCard({
         </p>
       </div>
     </Link>
-  );
+  )
 }

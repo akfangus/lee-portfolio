@@ -1,10 +1,10 @@
-import Link from "next/link";
-import dayjs from "dayjs";
-import { Badge } from "@/components/ui/badge";
-import type { BlogPost } from "@/features/blog/types";
+import Link from "next/link"
+import dayjs from "dayjs"
+import { Badge } from "@/components/ui/badge"
+import type { BlogPost } from "@/features/blog/types"
 
 interface PostCardProps {
-  post: BlogPost;
+  post: BlogPost
 }
 
 export function PostCard({ post }: PostCardProps): React.ReactElement {
@@ -51,6 +51,5 @@ export function PostCard({ post }: PostCardProps): React.ReactElement {
         </div>
       </div>
     </Link>
-  );
+  )
 }
-

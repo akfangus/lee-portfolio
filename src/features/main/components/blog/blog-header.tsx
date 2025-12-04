@@ -8,6 +8,5 @@ export function BlogHeader(): React.ReactElement {
         개발하면서 겪은 문제와 해결 과정을 기록합니다
       </p>
     </div>
-  );
+  )
 }
-

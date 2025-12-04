@@ -1,10 +1,10 @@
-import Image from "next/image";
-import { memo } from "react";
+import Image from "next/image"
+import { memo } from "react"
 
 interface IntroCardProps {
-  title: string;
-  description: string;
-  imageSrc: string;
+  title: string
+  description: string
+  imageSrc: string
 }
 
 function IntroCardBase({ title, description, imageSrc }: IntroCardProps) {
@@ -28,7 +28,7 @@ function IntroCardBase({ title, description, imageSrc }: IntroCardProps) {
         </p>
       </div>
     </div>
-  );
+  )
 }
 
-export const IntroCard = memo(IntroCardBase);
+export const IntroCard = memo(IntroCardBase)

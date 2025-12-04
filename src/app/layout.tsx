@@ -1,21 +1,21 @@
-import type { Metadata } from "next";
-import { Jua, Noto_Sans_KR } from "next/font/google";
-import "./globals.css";
-import Providers from "./providers";
-import { MainHeader } from "@/components/header";
+import type { Metadata } from "next"
+import { Jua, Noto_Sans_KR } from "next/font/google"
+import "./globals.css"
+import Providers from "./providers"
+import { MainHeader } from "@/components/header"
 
 const jua = Jua({
   variable: "--font-jua",
   subsets: ["latin"],
   weight: ["400"],
   display: "swap",
-});
+})
 const notoSansKR = Noto_Sans_KR({
   variable: "--font-noto-sans-kr",
   subsets: ["latin"],
   weight: ["100", "300", "400", "500", "700", "900"],
   display: "swap",
-});
+})
 
 export const metadata: Metadata = {
   title: "Goddddd's Portfolio",
@@ -24,12 +24,12 @@ export const metadata: Metadata = {
   icons: {
     icon: "/portfolio.svg",
   },
-};
+}
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
     <html lang="en">
@@ -42,5 +42,5 @@ export default function RootLayout({
         </Providers>
       </body>
     </html>
-  );
+  )
 }

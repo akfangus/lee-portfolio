@@ -1,21 +1,21 @@
-"use client";
+"use client"
 
-import { CATEGORIES } from "@/features/main/consts";
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tab/tab";
-import { useQueryState } from "nuqs";
+import { CATEGORIES } from "@/features/main/consts"
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tab/tab"
+import { useQueryState } from "nuqs"
 
 export function SkillTabs() {
   const [category, setCategory] = useQueryState("category", {
     shallow: false, // URL 변경 시 스크롤 유지 및 서버 요청 여부 제어
-  });
+  })
 
   const handleTabClick = (value: string) => {
     if (category === value) {
-      setCategory(null); // 이미 선택된 탭을 다시 클릭하면 선택 해제
+      setCategory(null) // 이미 선택된 탭을 다시 클릭하면 선택 해제
     } else {
-      setCategory(value); // 새로운 탭 선택
+      setCategory(value) // 새로운 탭 선택
     }
-  };
+  }
 
   return (
     <Tabs value={category || ""} className="w-full flex justify-center ">
@@ -32,5 +32,5 @@ export function SkillTabs() {
         ))}
       </TabsList>
     </Tabs>
-  );
+  )
 }

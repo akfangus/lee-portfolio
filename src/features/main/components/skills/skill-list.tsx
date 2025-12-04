@@ -1,34 +1,37 @@
-"use client";
+"use client"
 
-import { useQuery } from "@tanstack/react-query";
-import { cn } from "@/lib/utils";
-import Image from "next/image";
-import { SkillItem, CATEGORIES } from "@/features/main/consts";
-import { useQueryState } from "nuqs";
+import { useQuery } from "@tanstack/react-query"
+import { cn } from "@/lib/utils"
+import Image from "next/image"
+import { SkillItem, CATEGORIES } from "@/features/main/consts"
+import { useQueryState } from "nuqs"
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "@/components/ui/tooltip";
+} from "@/components/ui/tooltip"
 
 // API 호출 함수
 const fetchSkills = async (): Promise<SkillItem[]> => {
-  const response = await fetch("/api/images");
+  const response = await fetch("/api/images")
   if (!response.ok) {
-    throw new Error("Failed to fetch skills");
+    throw new Error("Failed to fetch skills")
   }
-  return response.json();
-};
+  return response.json()
+}
 
 // 카테고리 순서 인덱스 맵핑 (정렬용)
-const categoryOrder = CATEGORIES.reduce((acc, cat, index) => {
-  acc[cat.id] = index;
-  return acc;
-}, {} as Record<string, number>);
+const categoryOrder = CATEGORIES.reduce(
+  (acc, cat, index) => {
+    acc[cat.id] = index
+    return acc
+  },
+  {} as Record<string, number>
+)
 
 export function SkillList() {
-  const [category] = useQueryState("category");
+  const [category] = useQueryState("category")
 
   const {
     data: skills = [],
@@ -41,12 +44,12 @@ export function SkillList() {
     select: (data) => {
       // 데이터 페칭 후 카테고리 순서대로 정렬
       return [...data].sort((a, b) => {
-        const orderA = categoryOrder[a.category] ?? 999;
-        const orderB = categoryOrder[b.category] ?? 999;
-        return orderA - orderB;
-      });
+        const orderA = categoryOrder[a.category] ?? 999
+        const orderB = categoryOrder[b.category] ?? 999
+        return orderA - orderB
+      })
     },
-  });
+  })
 
   if (isLoading) {
     return (
@@ -60,7 +63,7 @@ export function SkillList() {
           </div>
         ))}
       </div>
-    );
+    )
   }
 
   if (isError) {
@@ -68,7 +71,7 @@ export function SkillList() {
       <div className="w-full py-20 flex justify-center">
         <p className="text-red-500">스킬 목록을 불러오는데 실패했습니다.</p>
       </div>
-    );
+    )
   }
 
   return (
@@ -76,7 +79,7 @@ export function SkillList() {
       <div className="flex flex-wrap justify-center gap-4 px-2 w-full max-w-xl mt-12">
         {skills.map((skill) => {
           // 카테고리가 선택되어 있고, 해당 스킬의 카테고리와 다르면 블러 처리
-          const isBlur = category && skill.category !== category;
+          const isBlur = category && skill.category !== category
 
           return (
             <Tooltip key={skill.id} delayDuration={200}>
@@ -109,9 +112,9 @@ export function SkillList() {
                 </TooltipContent>
               )}
             </Tooltip>
-          );
+          )
         })}
       </div>
     </TooltipProvider>
-  );
+  )
 }

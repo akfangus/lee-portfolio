@@ -1,16 +1,18 @@
-"use client";
+"use client"
 
-import { useInView } from "react-intersection-observer";
+import { useInView } from "react-intersection-observer"
 
 interface BlogSectionProps {
-  children: React.ReactNode;
+  children: React.ReactNode
 }
 
-export function BlogSection({ children }: BlogSectionProps): React.ReactElement {
+export function BlogSection({
+  children,
+}: BlogSectionProps): React.ReactElement {
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.1,
-  });
+  })
 
   return (
     <section
@@ -20,6 +22,5 @@ export function BlogSection({ children }: BlogSectionProps): React.ReactElement 
     >
       {children}
     </section>
-  );
+  )
 }
-

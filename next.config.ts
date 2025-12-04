@@ -1,4 +1,4 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from "next"
 
 const nextConfig: NextConfig = {
   /* config options here */
@@ -11,6 +11,6 @@ const nextConfig: NextConfig = {
     ],
     domains: ["fqne1e1vih055r1l.public.blob.vercel-storage.com"],
   },
-};
+}
 
-export default nextConfig;
+export default nextConfig

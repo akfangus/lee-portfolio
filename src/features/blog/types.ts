@@ -7,15 +7,15 @@
  */
 export interface BlogPost {
   /** 노션 페이지 ID */
-  id: string;
+  id: string
   /** 포스트 제목 */
-  title: string;
+  title: string
   /** 최종 편집 일시 (ISO-8601) */
-  date: string;
+  date: string
   /** 카테고리: Skill 또는 Trouble Shooting */
-  category: "Skill" | "Trouble Shooting";
+  category: "Skill" | "Trouble Shooting"
   /** 상태: 시작 전, 진행 중, 완료 */
-  status: string;
+  status: string
   /** 커버 이미지 URL (optional) */
-  cover?: string;
+  cover?: string
 }

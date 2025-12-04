@@ -1,33 +1,33 @@
 export interface CompetencyItem {
-  title: string;
-  id: number;
-  description: string;
-  imageSrc: string;
+  title: string
+  id: number
+  description: string
+  imageSrc: string
 }
 
 // SVG 아이콘 데이터 인터페이스
 export interface SkillItem {
-  id: string;
-  name: string;
-  category: "frontend" | "library" | "environment" | "design"; // 탭 카테고리
-  iconSrc: string; // SVG 파일 경로 또는 컴포넌트
+  id: string
+  name: string
+  category: "frontend" | "library" | "environment" | "design" // 탭 카테고리
+  iconSrc: string // SVG 파일 경로 또는 컴포넌트
 }
 
 export interface ProjectItem {
-  title: string;
-  period: string;
-  description?: string;
-  techStack: string[];
-  details: string[];
+  title: string
+  period: string
+  description?: string
+  techStack: string[]
+  details: string[]
 }
 
 export interface ExperienceItem {
-  id: string;
-  company: string;
-  position: string;
-  department: string;
-  period: string;
-  projects: ProjectItem[];
+  id: string
+  company: string
+  position: string
+  department: string
+  period: string
+  projects: ProjectItem[]
 }
 
 // 탭 카테고리 정의
@@ -36,9 +36,9 @@ export const CATEGORIES = [
   { id: "library", label: "라이브러리" },
   { id: "environment", label: "환경 및 배포" },
   { id: "design", label: "디자인" },
-] as const;
+] as const
 
-export type CategoryType = (typeof CATEGORIES)[number]["id"];
+export type CategoryType = (typeof CATEGORIES)[number]["id"]
 
 export const COMPETENCY_DATA: CompetencyItem[] = [
   {
@@ -66,7 +66,7 @@ export const COMPETENCY_DATA: CompetencyItem[] = [
     imageSrc:
       "https://fqne1e1vih055r1l.public.blob.vercel-storage.com/core-tempotancy3.jpg", // 예시 이미지
   },
-];
+]
 
 export const EXPERIENCE_DATA: ExperienceItem[] = [
   {
@@ -126,4 +126,4 @@ export const EXPERIENCE_DATA: ExperienceItem[] = [
       },
     ],
   },
-];
+]
