@@ -17,10 +17,10 @@
   "lint-staged": {
     "*.{ts,tsx,js,jsx}": [
       "eslint --fix",
-      "prettier --write"
+      "prettier --write --ignore-path .prettierignore"
     ],
     "*.{json,css,md}": [
-      "prettier --write"
+      "prettier --write --ignore-path .prettierignore"
     ]
   },
   "dependencies": {
