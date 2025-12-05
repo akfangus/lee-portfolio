@@ -44,3 +44,7 @@ pnpm-lock.yaml
 docs/
 *.md
 
+# CI/CD config files
+.lefthook.yml
+.github/workflows/*.yml
+
