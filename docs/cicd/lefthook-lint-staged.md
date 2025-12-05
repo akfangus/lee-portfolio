@@ -5,112 +5,44 @@
 1. [Git Hooks란?](#git-hooks란)
 2. [lefthook이란?](#lefthook이란)
 3. [lint-staged란?](#lint-staged란)
-4. [왜 이 조합을 사용하는가?](#왜-이-조합을-사용하는가)
-5. [설정 방법](#설정-방법)
-6. [동작 원리](#동작-원리)
-7. [사용 방법](#사용-방법)
-8. [문제 해결](#문제-해결)
+4. [설정 방법](#설정-방법)
+5. [동작 원리](#동작-원리)
+6. [문제 해결](#문제-해결)
 
 ---
 
 ## Git Hooks란?
 
-**Git Hooks**는 Git이 특정 이벤트(커밋, 푸시 등)를 수행하기 전후에 자동으로 실행되는 스크립트입니다.
+Git이 특정 이벤트(커밋, 푸시 등) 전후에 자동 실행하는 스크립트입니다.
 
-### 주요 Git Hooks
+**주요 Hooks:**
+- `pre-commit`: 커밋 전 실행
+- `pre-push`: 푸시 전 실행
 
-- **pre-commit**: 커밋하기 **전**에 실행
-- **pre-push**: 푸시하기 **전**에 실행
-- **post-commit**: 커밋한 **후**에 실행
-- **post-merge**: 머지한 **후**에 실행
-
-### 왜 필요한가?
-
-커밋이나 푸시 전에 자동으로 코드 품질을 검사하면:
-- ✅ 타입 에러가 있는 코드가 커밋되는 것을 방지
-- ✅ 린트 에러가 있는 코드가 리포지토리에 올라가는 것을 방지
-- ✅ 테스트가 실패한 코드를 배포하는 것을 방지
-- ✅ 팀 전체의 코드 품질을 일관되게 유지
+**왜 필요한가?**
+- 타입/린트 에러가 있는 코드 커밋 방지
+- 코드 품질 일관성 유지
 
 ---
 
 ## lefthook이란?
 
-**lefthook**은 Git Hooks를 쉽게 관리할 수 있게 해주는 도구입니다.
+Git Hooks를 쉽게 관리하는 도구입니다. (Husky 대안)
 
-### Husky vs lefthook
-
-| 특징 | Husky | lefthook |
-|------|-------|----------|
-| **속도** | 순차 실행 | 병렬 실행 (빠름) |
-| **설정** | 복잡 (여러 파일) | 간단 (YAML 하나) |
-| **TypeScript** | 제한적 | 완벽 지원 |
-| **에러 메시지** | 기본적 | 상세함 |
-
-### lefthook의 장점
-
-1. **빠른 실행**: 여러 명령을 병렬로 실행하여 속도 향상
-2. **간단한 설정**: `.lefthook.yml` 파일 하나로 모든 설정 관리
-3. **TypeScript 지원**: TypeScript 프로젝트에 최적화
-4. **좋은 에러 메시지**: 문제 발생 시 명확한 안내
+**장점:**
+- 빠른 실행 (병렬 처리)
+- 간단한 설정 (YAML 하나)
+- TypeScript 지원
 
 ---
 
 ## lint-staged란?
 
-**lint-staged**는 Git에 **staged된 파일만** 선택적으로 린트/포맷팅을 실행하는 도구입니다.
+**staged된 파일만** 선택적으로 린트/포맷팅을 실행하는 도구입니다.
 
-### 왜 필요한가?
-
-전체 파일을 검사하면:
-- ❌ 시간이 오래 걸림 (수백 개의 파일)
-- ❌ 변경하지 않은 파일까지 검사 (불필요)
-- ❌ 커밋이 느려짐
-
-staged된 파일만 검사하면:
-- ✅ 빠른 실행 (변경된 파일만)
-- ✅ 효율적인 검사
-- ✅ 빠른 커밋
-
-### 동작 방식
-
-```bash
-# 예시: 3개 파일을 수정하고 2개만 staged
-git add src/components/Button.tsx
-git add src/components/Input.tsx
-# src/utils/helper.ts는 staged 안 함
-
-# lint-staged 실행 시
-# → Button.tsx만 검사 ✅
-# → Input.tsx만 검사 ✅
-# → helper.ts는 검사 안 함 (staged 안 됨)
-```
-
----
-
-## 왜 이 조합을 사용하는가?
-
-### lefthook + lint-staged 조합
-
-```
-커밋 시도
-    ↓
-lefthook (pre-commit 훅 실행)
-    ↓
-lint-staged (staged 파일만 검사)
-    ↓
-ESLint 실행 (자동 수정)
-    ↓
-검사 통과 → 커밋 성공 ✅
-검사 실패 → 커밋 차단 ❌
-```
-
-### 장점
-
-1. **빠른 피드백**: 커밋 전에 즉시 문제 발견
-2. **자동 수정**: ESLint가 자동으로 수정 가능한 문제 해결
-3. **효율적**: 변경된 파일만 검사
-4. **일관성**: 모든 팀원이 동일한 코드 품질 기준 적용
+**왜 필요한가?**
+- 전체 파일 검사는 느림
+- 변경된 파일만 검사하면 빠름
 
 ---
 
@@ -128,16 +60,9 @@ npm install -D lefthook lint-staged
 npx lefthook install
 ```
 
-이 명령은 `.git/hooks` 폴더에 Git hooks를 설치합니다.
-
 ### 3. `.lefthook.yml` 파일 생성
 
-프로젝트 루트에 `.lefthook.yml` 파일을 생성합니다:
-
 ```yaml
-# lefthook 설정 파일
-# Git hooks를 관리하는 설정입니다.
-
 pre-commit:
   parallel: true
   commands:
@@ -146,13 +71,7 @@ pre-commit:
       stage_fixed: true
 ```
 
-**설명:**
-- `pre-commit`: 커밋 전에 실행되는 훅
-- `parallel: true`: 여러 명령을 병렬로 실행 (빠름)
-- `run: npx lint-staged`: lint-staged 실행
-- `stage_fixed: true`: 자동 수정된 파일을 다시 staged에 추가
-
-### 4. `package.json`에 lint-staged 설정 추가
+### 4. `package.json` 설정
 
 ```json
 {
@@ -167,56 +86,16 @@ pre-commit:
 }
 ```
 
-**설명:**
-- `prepare` 스크립트: `npm install` 시 자동으로 lefthook 설치
-- `lint-staged`: 파일 패턴별로 실행할 명령 정의
-  - `*.{ts,tsx,js,jsx}`: TypeScript/JavaScript 파일
-  - `eslint --fix`: ESLint 실행 및 자동 수정
-
 ---
 
 ## 동작 원리
 
-### 전체 플로우
-
 ```
-1. 개발자가 코드 수정
-   ↓
-2. git add (파일을 staged 상태로)
-   ↓
-3. git commit 시도
-   ↓
-4. lefthook이 pre-commit 훅 감지
-   ↓
-5. lint-staged 실행
-   ↓
-6. staged된 파일만 ESLint 검사
-   ↓
-7-1. 문제 없음 → 커밋 성공 ✅
-7-2. 문제 있음 → 커밋 차단, 에러 메시지 표시 ❌
-```
-
-### 실제 예시
-
-```bash
-# 1. 파일 수정
-vim src/components/Button.tsx
-
-# 2. staged에 추가
-git add src/components/Button.tsx
-
-# 3. 커밋 시도
-git commit -m "feat: 버튼 컴포넌트 추가"
-
-# 4. lefthook이 자동 실행
-# → lint-staged 실행
-# → Button.tsx에 ESLint 실행
-# → 문제 발견: 세미콜론 누락
-
-# 5. 결과
-# ❌ 커밋 실패
-# 에러: ESLint found problems in Button.tsx
-# 해결: ESLint --fix로 자동 수정 후 다시 커밋
+코드 수정 → git add → git commit 시도
+→ lefthook 실행 → lint-staged 실행
+→ staged 파일만 ESLint 검사
+→ 문제 없으면 커밋 성공 ✅
+→ 문제 있으면 커밋 차단 ❌
 ```
 
 ---
@@ -226,41 +105,25 @@ git commit -m "feat: 버튼 컴포넌트 추가"
 ### 정상적인 사용
 
 ```bash
-# 1. 파일 수정
-# 2. staged에 추가
 git add .
-
-# 3. 커밋
 git commit -m "feat: 새로운 기능 추가"
-
-# lefthook이 자동으로 실행됨
-# 문제 없으면 커밋 성공 ✅
+# lefthook이 자동 실행, 문제 없으면 커밋 성공
 ```
 
 ### 문제가 있을 때
 
 ```bash
 git commit -m "feat: 새로운 기능 추가"
-
 # ❌ 커밋 실패
-# 에러 메시지:
-# ESLint found problems:
-#   src/components/Button.tsx
-#     5:1  error  Missing semicolon  semi
-
-# 해결 방법:
-# 1. ESLint가 자동 수정 가능한 경우: 자동 수정됨
-# 2. 수동 수정 필요: 에러 메시지 보고 수정
-# 3. 다시 커밋 시도
+# 에러: ESLint found problems
+# 해결: 에러 수정 후 다시 커밋
 ```
 
-### lefthook 건너뛰기 (비추천)
+### 건너뛰기 (비추천)
 
 ```bash
-# --no-verify 플래그 사용 (비추천!)
 git commit --no-verify -m "feat: 새로운 기능 추가"
-
-# ⚠️ 주의: 코드 품질 검사를 건너뛰므로 사용하지 않는 것이 좋습니다
+# ⚠️ 코드 품질 검사 건너뜀
 ```
 
 ---
@@ -270,9 +133,7 @@ git commit --no-verify -m "feat: 새로운 기능 추가"
 ### lefthook이 실행되지 않을 때
 
 ```bash
-# lefthook 재설치
 npx lefthook install
-
 # 또는
 npm run prepare
 ```
@@ -281,8 +142,6 @@ npm run prepare
 
 ```bash
 # package.json의 lint-staged 설정 확인
-# .lefthook.yml의 run 명령 확인
-
 # 수동 실행 테스트
 npx lint-staged
 ```
@@ -290,45 +149,22 @@ npx lint-staged
 ### ESLint 에러가 계속 발생할 때
 
 ```bash
-# ESLint 설정 확인
-cat eslint.config.mjs
-
 # 수동으로 ESLint 실행
 npx eslint src/components/Button.tsx --fix
-```
-
-### prepare 스크립트가 실행되지 않을 때
-
-```bash
-# package.json 확인
-# "prepare": "lefthook install" 스크립트가 있는지 확인
-
-# 수동 실행
-npm run prepare
 ```
 
 ---
 
 ## 요약
 
-### 핵심 개념
+**핵심 개념:**
+- Git Hooks: Git 이벤트 전후 자동 실행 스크립트
+- lefthook: Git Hooks 관리 도구
+- lint-staged: staged 파일만 검사하는 도구
 
-1. **Git Hooks**: Git 이벤트 전후에 자동 실행되는 스크립트
-2. **lefthook**: Git Hooks를 쉽게 관리하는 도구 (Husky 대안)
-3. **lint-staged**: staged된 파일만 선택적으로 검사하는 도구
-
-### 설정 완료 체크리스트
-
-- [x] lefthook 설치 (`npm install -D lefthook`)
-- [x] lint-staged 설치 (`npm install -D lint-staged`)
-- [x] lefthook 초기화 (`npx lefthook install`)
+**설정 완료 체크리스트:**
+- [x] lefthook 설치
+- [x] lint-staged 설치
+- [x] lefthook 초기화
 - [x] `.lefthook.yml` 파일 생성
 - [x] `package.json`에 lint-staged 설정 추가
-- [x] `package.json`에 prepare 스크립트 추가
-
-### 다음 단계
-
-이제 커밋할 때마다 자동으로 코드 품질이 검사됩니다!  
-다음으로는 [GitHub Actions CI 파이프라인](./github-actions.md)을 설정해보세요.
-
-
