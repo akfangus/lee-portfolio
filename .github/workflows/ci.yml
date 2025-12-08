@@ -2,8 +2,12 @@ name: CI
 
 # 이 워크플로우가 실행되는 조건
 on:
-  push:                     # 모든 브랜치에 push할 때
-  pull_request:             # 모든 PR에 대해
+  # main 브랜치에 push할 때
+  push:
+    branches: [main]
+  # main 브랜치로 PR을 만들 때
+  pull_request:
+    branches: [main]
 
 # 작업 정의
 jobs:
