@@ -47,7 +47,17 @@ jobs:
         run: npm run lint
         # package.json의 lint 스크립트 실행
 
-      # 6. Next.js 빌드
+      # 6. Prettier 포맷 체크  
+      - name: Format Check
+        run: npm run format:check
+        # 코드 포맷팅이 올바른지 확인
+
+      # 7. 보안 취약점 스캔
+      - name: Security Audit
+        run: npm audit --audit-level=moderate
+        continue-on-error: true
+
+      # 8. Next.js 빌드
       - name: Build
         run: npm run build
         # 프로덕션 빌드가 성공하는지 확인
