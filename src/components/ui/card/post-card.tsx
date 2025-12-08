@@ -8,6 +8,16 @@ interface PostCardProps {
   post: BlogPost
 }
 
+function getCategoryBadgeStyle(category: BlogPost["category"]): string {
+  if (category === "Skill") {
+    return "bg-blue-500 text-white"
+  }
+  if (category === "Issue") {
+    return "bg-purple-500 text-white"
+  }
+  return "bg-red-500 text-white"
+}
+
 export function PostCard({ post }: PostCardProps): React.ReactElement {
   return (
     <Link
@@ -31,11 +41,7 @@ export function PostCard({ post }: PostCardProps): React.ReactElement {
           {post.category && (
             <Badge
               variant="destructive"
-              className={`text-xs font-medium ${
-                post.category === "Skill"
-                  ? "bg-blue-500 text-white"
-                  : "bg-red-500 text-white"
-              }`}
+              className={`text-xs font-medium ${getCategoryBadgeStyle(post.category)}`}
             >
               {post.category}
             </Badge>
