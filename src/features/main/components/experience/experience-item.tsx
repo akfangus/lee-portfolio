@@ -1,19 +1,19 @@
-"use client";
+"use client"
 
-import { useState } from "react";
-import { ExperienceItem as IExperienceItem } from "@/features/main/consts";
-import { cn } from "@/lib/utils";
-import { Badge } from "@/components/ui/badge";
-import { ToggleButton } from "@/features/main/components/experience/toggle-button";
+import { useState } from "react"
+import { ExperienceItem as IExperienceItem } from "@/features/main/consts"
+import { cn } from "@/lib/utils"
+import { Badge } from "@/components/ui/badge"
+import { ToggleButton } from "@/features/main/components/experience/toggle-button"
 
 interface ExperienceItemProps {
-  data: IExperienceItem;
+  data: IExperienceItem
 }
 
 export function ExperienceItem({ data }: ExperienceItemProps) {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false)
 
-  const toggleOpen = () => setIsOpen((prev) => !prev);
+  const toggleOpen = () => setIsOpen((prev) => !prev)
 
   return (
     <div className="w-full bg-white dark:bg-stone-900 rounded-2xl shadow-sm border border-stone-200 dark:border-stone-800 overflow-hidden transition-colors">
@@ -100,5 +100,5 @@ export function ExperienceItem({ data }: ExperienceItemProps) {
         </div>
       </div>
     </div>
-  );
+  )
 }

@@ -1,10 +1,11 @@
-import Link from "next/link";
-import dayjs from "dayjs";
-import { Badge } from "@/components/ui/badge";
-import type { BlogPost } from "@/features/blog/types";
+import Link from "next/link"
+import Image from "next/image"
+import dayjs from "dayjs"
+import { Badge } from "@/components/ui/badge"
+import type { BlogPost } from "@/features/blog/types"
 
 interface PostCardProps {
-  post: BlogPost;
+  post: BlogPost
 }
 
 export function PostCard({ post }: PostCardProps): React.ReactElement {
@@ -14,11 +15,13 @@ export function PostCard({ post }: PostCardProps): React.ReactElement {
       className="group relative flex min-h-[200px] flex-col overflow-hidden rounded-xl border border-gray-200 bg-white transition-all hover:shadow-lg dark:border-gray-800 dark:bg-gray-900"
     >
       {post.cover && (
-        <div className="aspect-video w-full overflow-hidden bg-gray-100">
-          <img
+        <div className="relative aspect-video w-full overflow-hidden bg-gray-100">
+          <Image
             src={post.cover}
             alt={post.title}
-            className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+            fill
+            className="object-cover transition-transform duration-300 group-hover:scale-105"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         </div>
       )}
@@ -51,6 +54,5 @@ export function PostCard({ post }: PostCardProps): React.ReactElement {
         </div>
       </div>
     </Link>
-  );
+  )
 }
-

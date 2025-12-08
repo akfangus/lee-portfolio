@@ -1,4 +1,4 @@
-import React, { memo, type SVGProps } from "react";
+import React, { memo, type SVGProps } from "react"
 
 export const HieutIcon = memo(function HieutIcon({
   className,
@@ -23,5 +23,5 @@ export const HieutIcon = memo(function HieutIcon({
       />
       <circle cx="12" cy="16" r="5" stroke="currentColor" strokeWidth="3" />
     </svg>
-  );
-});
+  )
+})

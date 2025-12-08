@@ -1,4 +1,4 @@
-import React, { memo, type SVGProps } from "react";
+import React, { memo, type SVGProps } from "react"
 
 export const SiotIcon = memo(function SiotIcon({
   className,
@@ -22,5 +22,5 @@ export const SiotIcon = memo(function SiotIcon({
         strokeLinejoin="round"
       />
     </svg>
-  );
-});
+  )
+})

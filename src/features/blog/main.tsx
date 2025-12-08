@@ -1,8 +1,8 @@
-import { PostList } from "./components/post-list";
-import type { BlogPost } from "./types";
+import { PostList } from "./components/post-list"
+import type { BlogPost } from "./types"
 
 interface BlogMainProps {
-  posts: BlogPost[];
+  posts: BlogPost[]
 }
 
 export function BlogMain({ posts }: BlogMainProps): React.ReactElement {
@@ -20,5 +20,5 @@ export function BlogMain({ posts }: BlogMainProps): React.ReactElement {
 
       <PostList posts={posts} />
     </div>
-  );
+  )
 }

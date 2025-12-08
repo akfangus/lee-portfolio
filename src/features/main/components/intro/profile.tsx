@@ -1,7 +1,7 @@
-"use client";
+"use client"
 
-import { Mail, Phone } from "lucide-react";
-import { GithubIcon, NotionIcon } from "@/components/ui/svg";
+import { Mail, Phone } from "lucide-react"
+import { GithubIcon, NotionIcon } from "@/components/ui/svg"
 
 const CONTACT_INFO = {
   name: "이신행",
@@ -10,7 +10,7 @@ const CONTACT_INFO = {
   github: "https://github.com/akfangus",
   notion:
     "https://steady-abrosaurus-ff3.notion.site/Lee-Shin-Heang-dddadbce0f284626b2ee320146722848?source=copy_link",
-} as const;
+} as const
 
 export function Profile(): React.ReactElement {
   return (
@@ -132,5 +132,5 @@ export function Profile(): React.ReactElement {
         </div> */}
       </div>
     </div>
-  );
+  )
 }

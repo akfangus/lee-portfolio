@@ -1,9 +1,9 @@
-"use client";
+"use client"
 
-import { useGlobalNavigation } from "@/hooks/useglobalnavigation";
+import { useGlobalNavigation } from "@/hooks/useglobalnavigation"
 
 export function GNB() {
-  const { activeSection, navItems, isSticky } = useGlobalNavigation();
+  const { activeSection, navItems, isSticky } = useGlobalNavigation()
 
   return (
     <div className="sticky top-0 z-50 flex w-full justify-center pointer-events-none">
@@ -32,5 +32,5 @@ export function GNB() {
         </ul>
       </nav>
     </div>
-  );
+  )
 }

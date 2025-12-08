@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "next/link"
 
 export function BlogViewAllButton(): React.ReactElement {
   return (
@@ -23,6 +23,5 @@ export function BlogViewAllButton(): React.ReactElement {
         </svg>
       </Link>
     </div>
-  );
+  )
 }
-
